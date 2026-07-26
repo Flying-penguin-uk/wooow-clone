@@ -7,12 +7,17 @@ work. Vite + React 19 + TypeScript + Tailwind + Framer Motion + React Router.
 
 ## Deploying
 
-The live site is the  branch, served by GitHub Pages. To redeploy after changes:
+The live site is the `gh-pages` branch, served by GitHub Pages. To redeploy after changes:
 
-\\n
+```bash
+npm run build
+cd dist && git init -q && git checkout -qb gh-pages && git add -A && git commit -qm Deploy && git push -qf https://github.com/Flying-penguin-uk/wooow-clone.git gh-pages
+```
+
 Deep links return a 404 status code because GitHub Pages has no SPA rewrite and falls back to
-. The page still renders correctly. The site carries a  tag, so this has no
-SEO cost. Moving to Cloudflare Pages or Netlify would give real 200s on every route.
+`404.html`. The page still renders correctly in the browser. The site carries a `noindex` tag so
+this costs nothing in SEO terms. Moving to Cloudflare Pages or Netlify would give real 200s on
+every route.
 
 ## Running it
 
