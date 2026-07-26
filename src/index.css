@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 35 30% 96%;
+    --foreground: 350 35% 25%;
+
+    --card: 35 40% 98%;
+    --card-foreground: 350 35% 25%;
+
+    --popover: 35 40% 98%;
+    --popover-foreground: 350 35% 25%;
+
+    --primary: 350 40% 35%;
+    --primary-foreground: 35 30% 96%;
+
+    --secondary: 35 25% 90%;
+    --secondary-foreground: 350 35% 25%;
+
+    --muted: 35 20% 92%;
+    --muted-foreground: 350 20% 45%;
+
+    --accent: 35 50% 85%;
+    --accent-foreground: 350 35% 25%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 35 25% 85%;
+    --input: 35 25% 85%;
+    --ring: 350 40% 35%;
+
+    --gold: 42 70% 55%;
+    --gold-light: 42 60% 70%;
+    --burgundy: 350 40% 35%;
+    --burgundy-light: 350 35% 45%;
+    --blush: 350 30% 90%;
+    --cream: 35 30% 96%;
+    --cream-dark: 35 25% 90%;
+    --sage: 140 20% 45%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2 {
+    @apply font-display font-normal;
+  }
+
+  h3,
+  h4 {
+    @apply font-serif font-medium;
+  }
+
+  ::selection {
+    background: hsl(var(--gold) / 0.3);
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-[11px] font-sans font-semibold uppercase tracking-eyebrow text-primary/70;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full font-sans font-semibold
+           transition-all duration-300 disabled:opacity-50 disabled:pointer-events-none
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary text-primary-foreground px-8 py-3.5 shadow-soft
+           hover:bg-burgundy-light hover:shadow-lift hover:-translate-y-0.5;
+  }
+
+  .btn-gold {
+    @apply btn px-8 py-3.5 text-[hsl(350_40%_20%)] shadow-gold hover:-translate-y-0.5;
+    background-image: linear-gradient(110deg, hsl(var(--gold-light)), hsl(var(--gold)) 45%, hsl(var(--gold-light)));
+    background-size: 200% 100%;
+  }
+
+  .btn-gold:hover {
+    animation: shimmer 2.2s linear infinite;
+  }
+
+  .btn-outline {
+    @apply btn border border-primary/30 bg-transparent px-8 py-3.5 text-primary
+           hover:bg-primary hover:text-primary-foreground;
+  }
+
+  .btn-ghost {
+    @apply btn px-5 py-2.5 text-primary/80 hover:text-primary hover:bg-secondary;
+  }
+
+  .card-soft {
+    @apply rounded-2xl border border-border/70 bg-card shadow-soft;
+  }
+
+  .section {
+    @apply py-20 md:py-28;
+  }
+
+  .rule {
+    @apply mx-auto h-px w-24 bg-gradient-to-r from-transparent via-gold to-transparent;
+  }
+
+  .gold-text {
+    background: linear-gradient(100deg, hsl(var(--gold)), hsl(42 80% 45%), hsl(var(--gold-light)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
