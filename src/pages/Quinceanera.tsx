@@ -34,7 +34,7 @@ export default function Quinceanera() {
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {QUINCE_THEMES.map((t, i) => (
               <Reveal key={t.slug} delay={i * 0.08}>
-                <ThemeCard theme={t} />
+                <ThemeCard theme={t} index={i} />
               </Reveal>
             ))}
           </div>

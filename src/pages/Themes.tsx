@@ -74,7 +74,7 @@ export default function Themes() {
 
           <motion.div layout className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
             <AnimatePresence mode="popLayout">
-              {shown.map((t) => (
+              {shown.map((t, i) => (
                 <motion.div
                   key={t.slug}
                   layout
@@ -83,7 +83,7 @@ export default function Themes() {
                   exit={{ opacity: 0, scale: 0.94 }}
                   transition={{ duration: 0.28 }}
                 >
-                  <ThemeCard theme={t} onPlay={setPreview} />
+                  <ThemeCard theme={t} index={i} onPlay={setPreview} />
                 </motion.div>
               ))}
             </AnimatePresence>

@@ -6,7 +6,18 @@ import type { Theme } from '../../data/themes'
  * Theme tile. The live product plays a short film here. This build uses a slow
  * Ken Burns still under an animated gradient wash so the motion reads the same.
  */
-export default function ThemeCard({ theme, onPlay }: { theme: Theme; onPlay?: (t: Theme) => void }) {
+export default function ThemeCard({
+  theme,
+  onPlay,
+  index = 0,
+}: {
+  theme: Theme
+  onPlay?: (t: Theme) => void
+  index?: number
+}) {
+  // Offset each card's drift so a grid of them never moves in lockstep.
+  const drift = -(index % 6) * 3
+
   return (
     <motion.article
       whileHover={{ y: -6 }}
@@ -18,13 +29,17 @@ export default function ThemeCard({ theme, onPlay }: { theme: Theme; onPlay?: (t
           src={theme.photo}
           alt=""
           loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-[6000ms] ease-out group-hover:scale-110"
+          style={{ animationDelay: `${drift}s` }}
+          className="absolute inset-0 h-full w-full animate-kenburns object-cover will-change-transform"
         />
         <div
           className="absolute inset-0 mix-blend-multiply opacity-70 transition-opacity duration-500 group-hover:opacity-55"
           style={{ backgroundImage: `linear-gradient(160deg, ${theme.grad[0]}, ${theme.grad[1]})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+
+        {/* soft sheen sweep on hover, reads like a video scrubbing */}
+        <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
 
         {theme.popular && (
           <span className="absolute left-3 top-3 rounded-full bg-gold px-2.5 py-1 font-sans text-[9px] font-bold uppercase tracking-eyebrow text-[hsl(350_40%_20%)]">

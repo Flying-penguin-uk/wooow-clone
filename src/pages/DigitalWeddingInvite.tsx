@@ -68,7 +68,7 @@ export default function DigitalWeddingInvite() {
           <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
             {THEMES.slice(0, 4).map((t, i) => (
               <Reveal key={t.slug} delay={i * 0.08}>
-                <ThemeCard theme={t} />
+                <ThemeCard theme={t} index={i} />
               </Reveal>
             ))}
           </div>

@@ -92,6 +92,11 @@ export default {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
         },
+        kenburns: {
+          '0%': { transform: 'scale(1.06) translate3d(0,0,0)' },
+          '50%': { transform: 'scale(1.16) translate3d(-1.5%,-1.5%,0)' },
+          '100%': { transform: 'scale(1.06) translate3d(0,0,0)' },
+        },
         'pulse-ring': {
           '0%': { boxShadow: '0 0 0 0 hsl(350 40% 35% / 0.35)' },
           '70%': { boxShadow: '0 0 0 14px hsl(350 40% 35% / 0)' },
@@ -104,6 +109,7 @@ export default {
         float: 'float 6s ease-in-out infinite',
         marquee: 'marquee 38s linear infinite',
         'pulse-ring': 'pulse-ring 2.4s ease-out infinite',
+        kenburns: 'kenburns 18s ease-in-out infinite',
       },
     },
   },

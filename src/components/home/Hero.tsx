@@ -49,10 +49,10 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.25 }}
-          className="mt-6 flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1 font-serif text-xl italic text-muted-foreground md:text-2xl"
+          className="mt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 font-serif text-xl italic text-muted-foreground md:text-2xl"
         >
           <span>designed to</span>
-          <span className="relative inline-grid h-9 min-w-[13ch] place-items-center overflow-hidden md:h-10">
+          <span className="relative inline-grid h-9 min-w-[15ch] justify-items-start overflow-hidden text-left md:h-10">
             <AnimatePresence mode="wait">
               <motion.span
                 key={HERO_WORDS[word]}
@@ -60,7 +60,7 @@ export default function Hero() {
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -26, opacity: 0 }}
                 transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute whitespace-nowrap font-display not-italic text-primary"
+                className="absolute inset-y-0 flex items-center whitespace-nowrap font-display not-italic leading-none text-primary"
               >
                 {HERO_WORDS[word]}
               </motion.span>

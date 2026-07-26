@@ -49,9 +49,9 @@ export default function ThemeCarousel() {
         ref={rail}
         className="no-scrollbar mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-[max(1.25rem,calc((100vw-1280px)/2+1.25rem))] pb-6"
       >
-        {SHOWCASE.map((t) => (
+        {SHOWCASE.map((t, i) => (
           <div key={t.slug} className="w-[15rem] shrink-0 snap-start sm:w-[16.5rem]">
-            <ThemeCard theme={t} />
+            <ThemeCard theme={t} index={i} />
           </div>
         ))}
       </div>
