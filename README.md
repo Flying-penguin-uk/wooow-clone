@@ -1,4 +1,8 @@
-# Wooow Invites, structural rebuild
+# Wooow Invites, structural rebuild (FROZEN BENCHMARK)
+
+> **Do not edit this project.** It is the reference-parity benchmark, kept deliberately
+> close to wooowinvites.com so branded forks can be compared against it. All experimental
+> and branded work happens in the sibling fork, not here. Tagged `benchmark-v1`.
 
 **Live test site:** https://flying-penguin-uk.github.io/wooow-clone/
 
